@@ -1,17 +1,16 @@
 import React, { useState, useEffect } from "react";
 
 import EmptyNotesListImage from "images/EmptyNotesList";
-import { Delete } from "neetoicons";
 import { Button, PageLoader } from "neetoui";
-import { Container, Header, SubHeader } from "neetoui/layouts";
+import { Container, Header } from "neetoui/layouts";
 
 import notesApi from "apis/notes";
 import EmptyState from "components/Common/EmptyState";
 
 import DeleteAlert from "./DeleteAlert";
 import Menu from "./Menu";
+import NoteCard from "./NoteCard";
 import NewNotePane from "./Pane/Create";
-import Table from "./Table";
 
 const Notes = () => {
   const [loading, setLoading] = useState(true);
@@ -50,7 +49,7 @@ const Notes = () => {
       <Container>
         <Header
           menuBarToggle={() => setShowMenuBar(!showMenuBar)}
-          title="Notes"
+          title="All Notes"
           actionBlock={
             <Button
               icon="ri-add-line"
@@ -60,27 +59,12 @@ const Notes = () => {
           }
           searchProps={{
             value: searchTerm,
+            placeholder: "Search Name, Email, Phone Number, Etc.",
             onChange: e => setSearchTerm(e.target.value),
           }}
         />
         {notes.length ? (
-          <>
-            <SubHeader
-              rightActionBlock={
-                <Button
-                  disabled={!selectedNoteIds.length}
-                  icon={Delete}
-                  label="Delete"
-                  onClick={() => setShowDeleteAlert(true)}
-                />
-              }
-            />
-            <Table
-              fetchNotes={fetchNotes}
-              notes={notes}
-              setSelectedNoteIds={setSelectedNoteIds}
-            />
-          </>
+          notes.map(element => <NoteCard {...element} key={element.id} />)
         ) : (
           <EmptyState
             image={EmptyNotesListImage}

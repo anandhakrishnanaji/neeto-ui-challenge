@@ -25,45 +25,6 @@ export const NOTES_TABLE_COLUMN_DATA = [
   },
 ];
 
-export const NOTES_DUMMY_DATA = [
-  {
-    id: 1,
-    title: "How to claim the warranty?",
-    content:
-      "Are you getting my texts???\" she texted to him. He glanced at it and chuckled under his breath. Of course he was getting them, but if he wasn't getting ",
-    tag: "Getting Started",
-    createdAt: "2018-04-13 19:18",
-    profilePictureUrl: "https://ibb.co/fS961wc",
-  },
-  {
-    id: 2,
-    title: "How to claim the warranty?",
-    content:
-      "Are you getting my texts???\" she texted to him. He glanced at it and chuckled under his breath. Of course he was getting them, but if he wasn't getting ",
-    tag: "Getting Started",
-    createdAt: "2018-04-13 19:18",
-    profilePictureUrl: "https://ibb.co/fS961wc",
-  },
-  {
-    id: 3,
-    title: "How to claim the warranty?",
-    content:
-      "Are you getting my texts???\" she texted to him. He glanced at it and chuckled under his breath. Of course he was getting them, but if he wasn't getting ",
-    tag: "Getting Started",
-    createdAt: "2018-04-13 19:18",
-    profilePictureUrl: "https://ibb.co/fS961wc",
-  },
-  {
-    id: 4,
-    title: "How to claim the warranty?",
-    content:
-      "Are you getting my texts???\" she texted to him. He glanced at it and chuckled under his breath. Of course he was getting them, but if he wasn't getting ",
-    tag: "Getting Started",
-    createdAt: "2018-04-13 19:18",
-    profilePictureUrl: "https://ibb.co/fS961wc",
-  },
-];
-
 export const MENU_BAR_BLOCKS = {
   users: [
     {
@@ -126,3 +87,6 @@ export const MENU_BAR_BLOCKS = {
     },
   ],
 };
+
+export const SUB_TEXT_COLOR = "#68737D";
+export const PROFILE_PICTURE_URL = "https://picsum.photos/200";
