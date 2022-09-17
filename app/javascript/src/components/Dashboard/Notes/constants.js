@@ -90,3 +90,7 @@ export const MENU_BAR_BLOCKS = {
 
 export const SUB_TEXT_COLOR = "#68737D";
 export const PROFILE_PICTURE_URL = "https://picsum.photos/200";
+export const INITIAL_DELETE_STATE = {
+  showDeleteAlert: false,
+  selectedNoteId: null,
+};

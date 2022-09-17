@@ -7,6 +7,7 @@ import { Container, Header } from "neetoui/layouts";
 import notesApi from "apis/notes";
 import EmptyState from "components/Common/EmptyState";
 
+import { INITIAL_DELETE_STATE } from "./constants";
 import DeleteAlert from "./DeleteAlert";
 import Menu from "./Menu";
 import NoteCard from "./NoteCard";
@@ -16,10 +17,15 @@ const Notes = () => {
   const [loading, setLoading] = useState(true);
   const [showMenuBar, setShowMenuBar] = useState(false);
   const [showNewNotePane, setShowNewNotePane] = useState(false);
-  const [showDeleteAlert, setShowDeleteAlert] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
-  const [selectedNoteIds, setSelectedNoteIds] = useState([]);
   const [notes, setNotes] = useState([]);
+
+  const [deleteStatus, setDeleteStatus] = useState(INITIAL_DELETE_STATE);
+  const { showDeleteAlert, selectedNoteId } = deleteStatus;
+
+  const closeDeleteAlert = () => setDeleteStatus(INITIAL_DELETE_STATE);
+  const openDeleteAlert = selectedNoteId =>
+    setDeleteStatus({ showDeleteAlert: true, selectedNoteId });
 
   useEffect(() => {
     fetchNotes();
@@ -64,7 +70,13 @@ const Notes = () => {
           }}
         />
         {notes.length ? (
-          notes.map(element => <NoteCard {...element} key={element.id} />)
+          notes.map(element => (
+            <NoteCard
+              {...element}
+              key={element.id}
+              onDelete={openDeleteAlert}
+            />
+          ))
         ) : (
           <EmptyState
             image={EmptyNotesListImage}
@@ -82,9 +94,8 @@ const Notes = () => {
         {showDeleteAlert && (
           <DeleteAlert
             refetch={fetchNotes}
-            selectedNoteIds={selectedNoteIds}
-            setSelectedNoteIds={setSelectedNoteIds}
-            onClose={() => setShowDeleteAlert(false)}
+            selectedNoteId={selectedNoteId}
+            onClose={closeDeleteAlert}
           />
         )}
       </Container>

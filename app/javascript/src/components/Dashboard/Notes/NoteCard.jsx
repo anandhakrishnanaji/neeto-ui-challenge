@@ -7,7 +7,13 @@ import { calculateCreatedAgo, dayTimeFormatter } from "utils/date";
 
 import { SUB_TEXT_COLOR, PROFILE_PICTURE_URL } from "./constants";
 
-const NoteCard = ({ title, description, created_at: createdAt }) => {
+const NoteCard = ({
+  id,
+  title,
+  description,
+  created_at: createdAt,
+  onDelete,
+}) => {
   const createdAgo = calculateCreatedAgo(createdAt);
   const dayTimeFormattedDate = dayTimeFormatter(createdAt);
   return (
@@ -19,7 +25,7 @@ const NoteCard = ({ title, description, created_at: createdAt }) => {
         <Dropdown buttonStyle="text" icon={MenuVertical}>
           <div className="p-1.5">
             <li>Edit</li>
-            <li>Delete</li>
+            <li onClick={() => onDelete(id)}>Delete</li>
           </div>
         </Dropdown>
       </div>
