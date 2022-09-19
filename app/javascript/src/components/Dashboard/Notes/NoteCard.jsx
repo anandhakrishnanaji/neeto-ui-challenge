@@ -13,39 +13,35 @@ const NoteCard = ({
   description,
   created_at: createdAt,
   onDelete,
-}) => {
-  const createdAgo = calculateCreatedAgo(createdAt);
-  const dayTimeFormattedDate = dayTimeFormatter(createdAt);
-  return (
-    <div className="my-2 flex w-full flex-col border border-solid border-gray-300 p-2.5 shadow">
-      <div className="flex justify-between">
-        <Typography style="h4" weight="semibold">
-          {title}
-        </Typography>
-        <Dropdown buttonStyle="text" icon={MenuVertical}>
-          <div className="p-1.5">
-            <li>Edit</li>
-            <li onClick={() => onDelete(id)}>Delete</li>
-          </div>
-        </Dropdown>
-      </div>
-      <p>{description}</p>
-      <hr className="my-2.5" />
-      <div className="flex justify-between align-middle">
-        <Tag className="mr-2 flex-initial" label="Getting Started" />
-        <div className="flex flex-initial items-center">
-          <Clock color={SUB_TEXT_COLOR} size={16} />
-          <Tooltip content={dayTimeFormattedDate} position="bottom">
-            <Typography
-              className="px-1"
-              color={SUB_TEXT_COLOR}
-              style="body3"
-            >{`Created ${createdAgo}`}</Typography>
-          </Tooltip>
-          <Avatar size="small" user={{ imageUrl: PROFILE_PICTURE_URL }} />
+}) => (
+  <div className="my-2 flex w-full flex-col border border-solid border-gray-300 p-2.5 shadow">
+    <div className="flex justify-between">
+      <Typography style="h4" weight="semibold">
+        {title}
+      </Typography>
+      <Dropdown buttonStyle="text" icon={MenuVertical}>
+        <div className="p-1.5">
+          <li>Edit</li>
+          <li onClick={() => onDelete(id)}>Delete</li>
         </div>
+      </Dropdown>
+    </div>
+    <p>{description}</p>
+    <hr className="my-2.5" />
+    <div className="flex justify-between align-middle">
+      <Tag className="mr-2 flex-initial" label="Getting Started" />
+      <div className="flex flex-initial items-center">
+        <Clock color={SUB_TEXT_COLOR} size={16} />
+        <Tooltip content={dayTimeFormatter(createdAt)} position="bottom">
+          <Typography
+            className="px-1"
+            color={SUB_TEXT_COLOR}
+            style="body3"
+          >{`Created ${calculateCreatedAgo(createdAt)}`}</Typography>
+        </Tooltip>
+        <Avatar size="small" user={{ imageUrl: PROFILE_PICTURE_URL }} />
       </div>
     </div>
-  );
-};
+  </div>
+);
 export default NoteCard;
