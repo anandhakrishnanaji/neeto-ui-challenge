@@ -10,18 +10,19 @@ const Menu = ({ showMenu }) => {
   const [isSearchCollapsed, setIsSearchCollapsed] = useState(true);
   return (
     <MenuBar showMenu={showMenu} title="Contacts">
-      {MENU_BAR_BLOCKS.users.map(element => (
+      {MENU_BAR_BLOCKS.users.map(blockSection => (
         <MenuBar.Block
-          count={element.count}
-          key={element.id}
-          label={element.label}
+          count={blockSection.count}
+          key={blockSection.id}
+          label={blockSection.label}
         />
       ))}
       <MenuBar.SubTitle
         iconProps={[
           {
             icon: Search,
-            onClick: () => setIsSearchCollapsed(!isSearchCollapsed),
+            onClick: () =>
+              setIsSearchCollapsed(previousState => !previousState),
           },
         ]}
       >
@@ -38,11 +39,11 @@ const Menu = ({ showMenu }) => {
         collapse={isSearchCollapsed}
         onCollapse={() => setIsSearchCollapsed(true)}
       />
-      {MENU_BAR_BLOCKS.segments.map(element => (
+      {MENU_BAR_BLOCKS.segments.map(blockSection => (
         <MenuBar.Block
-          count={element.count}
-          key={element.id}
-          label={element.label}
+          count={blockSection.count}
+          key={blockSection.id}
+          label={blockSection.label}
         />
       ))}
       <MenuBar.SubTitle
@@ -67,11 +68,11 @@ const Menu = ({ showMenu }) => {
           Tags
         </Typography>
       </MenuBar.SubTitle>
-      {MENU_BAR_BLOCKS.tags.map(element => (
+      {MENU_BAR_BLOCKS.tags.map(blockSection => (
         <MenuBar.Block
-          count={element.count}
-          key={element.id}
-          label={element.label}
+          count={blockSection.count}
+          key={blockSection.id}
+          label={blockSection.label}
         />
       ))}
     </MenuBar>
