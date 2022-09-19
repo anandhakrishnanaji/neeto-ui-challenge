@@ -4,7 +4,7 @@ export const NOTES_FORM_INITIAL_FORM_VALUES = {
   title: "",
   description: "",
   assignedContact: null,
-  tag: [],
+  tags: [],
 };
 
 export const NOTES_TABLE_COLUMN_DATA = [
@@ -167,7 +167,7 @@ export const NOTES_FORM_VALIDATION_SCHEMA = yup.object().shape({
       value: yup.number().oneOf(CONTACTS_DUMMY_DATA.map(contact => contact.id)),
     })
     .required("Contact is required"),
-  tag: yup
+  tags: yup
     .array()
     .of(
       yup.object().shape({

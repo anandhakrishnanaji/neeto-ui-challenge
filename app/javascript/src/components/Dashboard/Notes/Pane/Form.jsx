@@ -62,9 +62,9 @@ const NoteForm = ({ onClose, refetch, note, isEdit }) => {
               label="Assigned Contact"
               name="assignedContact"
               placeholder="Select Contact"
-              options={CONTACTS_DUMMY_DATA.map(contact => ({
-                value: contact.id,
-                label: contact.firstName,
+              options={CONTACTS_DUMMY_DATA.map((id, firstName) => ({
+                value: id,
+                label: firstName,
               }))}
             />
             <Select
@@ -73,12 +73,12 @@ const NoteForm = ({ onClose, refetch, note, isEdit }) => {
               required
               className="w-full flex-grow-0"
               label="Tags"
-              name="tag"
-              placeholder="Select Tag"
-              options={TAGS_DUMMY_DATA.map(element => {
-                const { name: label, id: value } = element;
-                return { value, label };
-              })}
+              name="tags"
+              placeholder="Select Tags"
+              options={TAGS_DUMMY_DATA.map(({ name, id }) => ({
+                label: name,
+                value: id,
+              }))}
             />
           </Pane.Body>
           <Pane.Footer>
