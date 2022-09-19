@@ -70,12 +70,8 @@ const Notes = () => {
           }}
         />
         {notes.length ? (
-          notes.map(element => (
-            <NoteCard
-              {...element}
-              key={element.id}
-              onDelete={openDeleteAlert}
-            />
+          notes.map(note => (
+            <NoteCard {...note} key={note.id} onDelete={openDeleteAlert} />
           ))
         ) : (
           <EmptyState
