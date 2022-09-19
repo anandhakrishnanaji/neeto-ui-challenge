@@ -3,7 +3,7 @@ import * as yup from "yup";
 export const NOTES_FORM_INITIAL_FORM_VALUES = {
   title: "",
   description: "",
-  assignedContact: null,
+  assignedContact: {},
   tag: [],
 };
 
