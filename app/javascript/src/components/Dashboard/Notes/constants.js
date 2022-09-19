@@ -3,12 +3,9 @@ import * as yup from "yup";
 export const NOTES_FORM_INITIAL_FORM_VALUES = {
   title: "",
   description: "",
+  assignedContact: null,
+  tag: [],
 };
-
-export const NOTES_FORM_VALIDATION_SCHEMA = yup.object().shape({
-  title: yup.string().required("Title is required"),
-  description: yup.string().required("Description is required"),
-});
 
 export const NOTES_TABLE_COLUMN_DATA = [
   {
@@ -88,9 +85,96 @@ export const MENU_BAR_BLOCKS = {
   ],
 };
 
+export const CONTACTS_DUMMY_DATA = [
+  {
+    id: 0,
+    firstName: "Ronald",
+    lastName: "Richards",
+    email: "albert@borer.com",
+    createdAt: "2018-04-13 19:18",
+    role: "owner",
+  },
+  {
+    id: 1,
+    firstName: "Jacob",
+    lastName: "Jones",
+    email: "albert@borer.com",
+    createdAt: "2018-04-13 19:18",
+    role: "owner",
+  },
+  {
+    id: 2,
+    firstName: "Ronald",
+    lastName: "Richards",
+    email: "albert@borer.com",
+    createdAt: "2018-04-13 19:18",
+    role: "owner",
+  },
+  {
+    id: 3,
+    firstName: "Jacob",
+    lastName: "Jones",
+    email: "albert@borer.com",
+    createdAt: "2018-04-13 19:18",
+    role: "owner",
+  },
+];
+
+export const TAGS_DUMMY_DATA = [
+  {
+    id: 0,
+    name: "Getting Started",
+  },
+  {
+    id: 1,
+    name: "Onboarding",
+  },
+  {
+    id: 2,
+    name: "User Flow",
+  },
+  {
+    id: 3,
+    name: "UX",
+  },
+  {
+    id: 4,
+    name: "Bugs",
+  },
+  {
+    id: 5,
+    name: "V2",
+  },
+];
+
 export const SUB_TEXT_COLOR = "#68737D";
 export const PROFILE_PICTURE_URL = "https://picsum.photos/200";
 export const INITIAL_DELETE_STATE = {
   showDeleteAlert: false,
   selectedNoteId: null,
 };
+
+export const NOTES_FORM_VALIDATION_SCHEMA = yup.object().shape({
+  title: yup.string().required("Title is required"),
+  description: yup.string().required("Description is required"),
+  assignedContact: yup
+    .object()
+    .nullable()
+    .shape({
+      label: yup
+        .string()
+        .oneOf(CONTACTS_DUMMY_DATA.map(contact => contact.firstName)),
+      value: yup.number().oneOf(CONTACTS_DUMMY_DATA.map(contact => contact.id)),
+    })
+    .required("Contact is required"),
+  tag: yup
+    .array()
+    .of(
+      yup.object().shape({
+        label: yup.string().oneOf(TAGS_DUMMY_DATA.map(tag => tag.name)),
+        value: yup.number().oneOf(TAGS_DUMMY_DATA.map(tag => tag.id)),
+      })
+    )
+    .min(1, "Select atleast one tag")
+    .required("Tag is required"),
+});
