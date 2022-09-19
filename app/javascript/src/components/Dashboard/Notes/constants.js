@@ -163,8 +163,12 @@ export const NOTES_FORM_VALIDATION_SCHEMA = yup.object().shape({
     .shape({
       label: yup
         .string()
-        .oneOf(CONTACTS_DUMMY_DATA.map(contact => contact.firstName)),
-      value: yup.number().oneOf(CONTACTS_DUMMY_DATA.map(contact => contact.id)),
+        .oneOf(CONTACTS_DUMMY_DATA.map(contact => contact.firstName))
+        .required("Label not present"),
+      value: yup
+        .number()
+        .oneOf(CONTACTS_DUMMY_DATA.map(contact => contact.id))
+        .required("Value not present"),
     })
     .required("Contact is required"),
   tag: yup
