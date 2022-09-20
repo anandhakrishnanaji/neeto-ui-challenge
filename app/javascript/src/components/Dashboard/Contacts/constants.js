@@ -91,11 +91,11 @@ export const ROLES_DUMMY_DATA = [
 ];
 
 export const CONTACTS_FORM_VALIDATION_SCHEMA = yup.object().shape({
-  firstName: yup.string().required("First Name is required"),
-  lastName: yup.string().required("Last Name is required"),
+  firstName: yup.string().required("First name is required"),
+  lastName: yup.string().required("Last name is required"),
   email: yup
     .string()
-    .email("Valid Email is required")
+    .email("Valid email is required")
     .required("Email is required"),
   role: yup
     .object()
