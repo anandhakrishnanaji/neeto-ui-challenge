@@ -19,16 +19,16 @@ const renderAvatarWithNameAndRole = (firstName, { lastName, role }) => (
   </div>
 );
 
-const renderOptionButton = () => (
+const renderOptionButton = onDelete => (
   <Dropdown buttonStyle="text" icon={MenuHorizontal}>
     <div className="p-1.5">
       <li>Edit</li>
-      <li>Delete</li>
+      <li onClick={onDelete}>Delete</li>
     </div>
   </Dropdown>
 );
 
-const Table = ({ contacts = [] }) => (
+const Table = ({ contacts = [], onDelete }) => (
   <div className="contacts-table-height w-full">
     <NeetoUITable
       defaultPageSize={10}
@@ -59,7 +59,7 @@ const Table = ({ contacts = [] }) => (
           dataIndex: "id",
           key: "id",
           width: "10%",
-          render: renderOptionButton,
+          render: () => renderOptionButton(onDelete),
         },
       ]}
     />

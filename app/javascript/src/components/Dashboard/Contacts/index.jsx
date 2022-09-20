@@ -8,6 +8,7 @@ import EmptyState from "components/Common/EmptyState";
 import Menu from "components/Common/Menu";
 
 import { CONTACTS_DUMMY_DATA, MENU_BAR_BLOCKS } from "./constants";
+import DeleteAlert from "./DeleteAlert";
 import NewContactPane from "./Pane/Create";
 import Table from "./Table";
 
@@ -15,6 +16,7 @@ const Contacts = () => {
   const [showMenuBar, setShowMenuBar] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
   const [showNewContactPane, setShowNewContactPane] = useState(false);
+  const [showDeleteAlert, setShowDeleteAlert] = useState(false);
 
   return (
     <>
@@ -39,7 +41,10 @@ const Contacts = () => {
           }}
         />
         {CONTACTS_DUMMY_DATA.length ? (
-          <Table contacts={CONTACTS_DUMMY_DATA} />
+          <Table
+            contacts={CONTACTS_DUMMY_DATA}
+            onDelete={() => setShowDeleteAlert(true)}
+          />
         ) : (
           <EmptyState
             image={EmptyNotesListImage}
@@ -53,6 +58,9 @@ const Contacts = () => {
           setShowPane={setShowNewContactPane}
           showPane={showNewContactPane}
         />
+        {showDeleteAlert && (
+          <DeleteAlert onClose={() => setShowDeleteAlert(false)} />
+        )}
       </Container>
     </>
   );
