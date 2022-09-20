@@ -24,7 +24,9 @@ const Sidebar = () => {
   const renderCollapseToggleButton = () => {
     const Icon = isSidebarCollapsed ? RightArrow : LeftArrow;
     return (
-      <Icon onClick={() => setIsSidebarCollapsed(prevState => !prevState)} />
+      <Icon
+        onClick={() => setIsSidebarCollapsed(previousState => !previousState)}
+      />
     );
   };
 
