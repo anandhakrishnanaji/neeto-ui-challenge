@@ -7,7 +7,7 @@ import { monthDateFormatter } from "utils/date";
 
 import { PROFILE_PICTURE_URL } from "./constants";
 
-const renderAvatarWithNameAndRole = (firstName, { lastName, role }) => (
+const renderAvatarWithNameAndRole = (_, { firstName, lastName, role }) => (
   <div className="flex space-x-2">
     <Avatar size="large" user={{ imageUrl: PROFILE_PICTURE_URL }} />
     <div className="flex flex-col">
@@ -19,7 +19,7 @@ const renderAvatarWithNameAndRole = (firstName, { lastName, role }) => (
   </div>
 );
 
-const renderOptionButton = onDelete => (
+const renderActionDropdown = onDelete => (
   <Dropdown buttonStyle="text" icon={MenuHorizontal}>
     <div className="p-1.5">
       <li>Edit</li>
@@ -55,11 +55,10 @@ const Table = ({ contacts = [], onDelete }) => (
           render: monthDateFormatter,
         },
         {
-          title: "",
           dataIndex: "id",
           key: "id",
           width: "10%",
-          render: () => renderOptionButton(onDelete),
+          render: () => renderActionDropdown(onDelete),
         },
       ]}
     />
