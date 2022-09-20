@@ -25,7 +25,7 @@ const DeleteAlert = ({ refetch, onClose, selectedNoteId }) => {
       isSubmitting={deleting}
       size="md"
       title="Delete note?"
-      message="Are you sure you want to continue with the deletion of the note? This cannot be undone.
+      message="Are you sure you want to continue with the deleting this note? This cannot be undone.
       "
       onClose={onClose}
       onSubmit={handleDelete}
