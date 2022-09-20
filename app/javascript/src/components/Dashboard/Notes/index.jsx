@@ -11,7 +11,7 @@ import Menu from "components/Common/Menu";
 import { INITIAL_DELETE_STATE, MENU_BAR_BLOCKS } from "./constants";
 import DeleteAlert from "./DeleteAlert";
 import NoteCard from "./NoteCard";
-import NewNotePane from "./Pane/Create";
+import NewNotePane from "./Pane/NewNotePane";
 
 const Notes = () => {
   const [loading, setLoading] = useState(true);

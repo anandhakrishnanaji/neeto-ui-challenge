@@ -9,7 +9,7 @@ import Menu from "components/Common/Menu";
 
 import { CONTACTS_DUMMY_DATA, MENU_BAR_BLOCKS } from "./constants";
 import DeleteAlert from "./DeleteAlert";
-import NewContactPane from "./Pane/Create";
+import NewContactPane from "./Pane/NewContactPane";
 import Table from "./Table";
 
 const Contacts = () => {
