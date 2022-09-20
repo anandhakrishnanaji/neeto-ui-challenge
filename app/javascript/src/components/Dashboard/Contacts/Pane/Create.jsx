@@ -13,7 +13,7 @@ const NewContactPane = ({ showPane, setShowPane }) => {
     <Pane isOpen={showPane} onClose={onClose}>
       <Pane.Header>
         <Typography style="h2" weight="semibold">
-          Create a New Note
+          Create a New Contact
         </Typography>
       </Pane.Header>
       <Form

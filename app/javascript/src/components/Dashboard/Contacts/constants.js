@@ -91,12 +91,12 @@ export const ROLES_DUMMY_DATA = [
 ];
 
 export const CONTACTS_FORM_VALIDATION_SCHEMA = yup.object().shape({
-  firstName: yup.string().required("Title is required"),
-  lastName: yup.string().required("Description is required"),
+  firstName: yup.string().required("First Name is required"),
+  lastName: yup.string().required("Last Name is required"),
   email: yup
     .string()
     .email("Valid Email is required")
-    .required("Description is required"),
+    .required("Email is required"),
   role: yup
     .object()
     .nullable()
@@ -104,5 +104,5 @@ export const CONTACTS_FORM_VALIDATION_SCHEMA = yup.object().shape({
       label: yup.string().oneOf(ROLES_DUMMY_DATA.map(role => role.name)),
       value: yup.number().oneOf(ROLES_DUMMY_DATA.map(role => role.id)),
     })
-    .required("Contact is required"),
+    .required("Role is required"),
 });
