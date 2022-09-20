@@ -7,7 +7,7 @@ import { monthDateFormatter } from "utils/date";
 
 import { PROFILE_PICTURE_URL } from "./constants";
 
-const renderAvatarWithNameAndRole = (_, { firstName, lastName, role }) => (
+const renderAvatarWithNameAndRole = (firstName, { lastName, role }) => (
   <div className="flex space-x-2">
     <Avatar size="large" user={{ imageUrl: PROFILE_PICTURE_URL }} />
     <div className="flex flex-col">
