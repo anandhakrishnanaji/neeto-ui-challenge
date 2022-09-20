@@ -6,10 +6,10 @@ import { Container, Header } from "neetoui/layouts";
 
 import notesApi from "apis/notes";
 import EmptyState from "components/Common/EmptyState";
+import Menu from "components/Common/Menu";
 
-import { INITIAL_DELETE_STATE } from "./constants";
+import { INITIAL_DELETE_STATE, MENU_BAR_BLOCKS } from "./constants";
 import DeleteAlert from "./DeleteAlert";
-import Menu from "./Menu";
 import NoteCard from "./NoteCard";
 import NewNotePane from "./Pane/Create";
 
@@ -51,7 +51,7 @@ const Notes = () => {
 
   return (
     <>
-      <Menu showMenu={showMenuBar} />
+      <Menu menuBarBlocks={MENU_BAR_BLOCKS} showMenu={showMenuBar} />
       <Container>
         <Header
           menuBarToggle={() => setShowMenuBar(!showMenuBar)}

@@ -4,13 +4,11 @@ import { Search, Plus, Settings } from "neetoicons";
 import { Typography } from "neetoui";
 import { MenuBar } from "neetoui/layouts";
 
-import { MENU_BAR_BLOCKS } from "./constants";
-
-const Menu = ({ showMenu }) => {
+const Menu = ({ showMenu, menuBarBlocks }) => {
   const [isSearchCollapsed, setIsSearchCollapsed] = useState(true);
   return (
     <MenuBar showMenu={showMenu} title="Contacts">
-      {MENU_BAR_BLOCKS.users.map(blockSection => (
+      {menuBarBlocks.users.map(blockSection => (
         <MenuBar.Block
           count={blockSection.count}
           key={blockSection.id}
@@ -39,7 +37,7 @@ const Menu = ({ showMenu }) => {
         collapse={isSearchCollapsed}
         onCollapse={() => setIsSearchCollapsed(true)}
       />
-      {MENU_BAR_BLOCKS.segments.map(blockSection => (
+      {menuBarBlocks.segments.map(blockSection => (
         <MenuBar.Block
           count={blockSection.count}
           key={blockSection.id}
@@ -68,7 +66,7 @@ const Menu = ({ showMenu }) => {
           Tags
         </Typography>
       </MenuBar.SubTitle>
-      {MENU_BAR_BLOCKS.tags.map(blockSection => (
+      {menuBarBlocks.tags.map(blockSection => (
         <MenuBar.Block
           count={blockSection.count}
           key={blockSection.id}
