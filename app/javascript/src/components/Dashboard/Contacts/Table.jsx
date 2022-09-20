@@ -3,10 +3,9 @@ import React from "react";
 import { MenuHorizontal } from "neetoicons";
 import { Table as NeetoUITable, Avatar, Typography, Dropdown } from "neetoui";
 
-import {
-  PARTIAL_CONTACTS_TABLE_COLUMN_DATA,
-  PROFILE_PICTURE_URL,
-} from "./constants";
+import { monthDateFormatter } from "utils/date";
+
+import { PROFILE_PICTURE_URL } from "./constants";
 
 const renderAvatarWithNameAndRole = (firstName, { lastName, role }) => (
   <div className="flex space-x-2">
@@ -42,7 +41,19 @@ const Table = ({ contacts = [] }) => (
           width: "40%",
           render: renderAvatarWithNameAndRole,
         },
-        ...PARTIAL_CONTACTS_TABLE_COLUMN_DATA,
+        {
+          title: "Email",
+          dataIndex: "email",
+          key: "email",
+          width: "30%",
+        },
+        {
+          title: "Created at",
+          dataIndex: "createdAt",
+          key: "createdAt",
+          width: "20%",
+          render: monthDateFormatter,
+        },
         {
           title: "",
           dataIndex: "id",

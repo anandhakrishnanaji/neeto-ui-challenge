@@ -64,19 +64,4 @@ export const CONTACTS_DUMMY_DATA = [
   },
 ];
 
-export const PARTIAL_CONTACTS_TABLE_COLUMN_DATA = [
-  {
-    title: "Email",
-    dataIndex: "email",
-    key: "email",
-    width: "30%",
-  },
-  {
-    title: "Created at",
-    dataIndex: "createdAt",
-    key: "createdAt",
-    width: "20%",
-  },
-];
-
 export const PROFILE_PICTURE_URL = "https://picsum.photos/200";
