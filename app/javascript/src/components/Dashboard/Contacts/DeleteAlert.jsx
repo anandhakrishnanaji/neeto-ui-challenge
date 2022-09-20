@@ -13,7 +13,7 @@ const DeleteAlert = ({ onClose }) => {
       isOpen
       size="lg"
       title="Delete contact?"
-      message="Are you sure you want to continue with the deletion of the contact? This cannot be undone.
+      message="Are you sure you want to continue with deleting this contact? This cannot be undone.
       "
       onClose={onClose}
       onSubmit={handleDelete}
