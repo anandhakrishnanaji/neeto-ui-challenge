@@ -40,7 +40,7 @@ export const MENU_BAR_BLOCKS = {
       id: 3,
       count: 60,
       label: "Leads",
-      active: true,
+      active: false,
     },
     {
       id: 4,
