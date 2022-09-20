@@ -8,11 +8,13 @@ import EmptyState from "components/Common/EmptyState";
 import Menu from "components/Common/Menu";
 
 import { CONTACTS_DUMMY_DATA, MENU_BAR_BLOCKS } from "./constants";
+import NewContactPane from "./Pane/Create";
 import Table from "./Table";
 
 const Contacts = () => {
   const [showMenuBar, setShowMenuBar] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
+  const [showNewContactPane, setShowNewContactPane] = useState(false);
 
   return (
     <>
@@ -25,7 +27,9 @@ const Contacts = () => {
             <Button
               icon="ri-add-line"
               label="Add New Contact"
-              onClick={() => {}}
+              onClick={() => {
+                setShowNewContactPane(true);
+              }}
             />
           }
           searchProps={{
@@ -45,6 +49,10 @@ const Contacts = () => {
             title="Looks like you don't have any contacts!"
           />
         )}
+        <NewContactPane
+          setShowPane={setShowNewContactPane}
+          showPane={showNewContactPane}
+        />
       </Container>
     </>
   );

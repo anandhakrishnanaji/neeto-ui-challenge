@@ -1,3 +1,5 @@
+import * as yup from "yup";
+
 export const MENU_BAR_BLOCKS = {
   users: [
     {
@@ -65,3 +67,42 @@ export const CONTACTS_DUMMY_DATA = [
 ];
 
 export const PROFILE_PICTURE_URL = "https://picsum.photos/200";
+
+export const CONTACTS_FORM_INITIAL_FORM_VALUES = {
+  firstName: "",
+  lastName: "",
+  email: "",
+  role: null,
+};
+
+export const ROLES_DUMMY_DATA = [
+  {
+    id: 0,
+    name: "Owner",
+  },
+  {
+    id: 1,
+    name: "Admin",
+  },
+  {
+    id: 2,
+    name: "User",
+  },
+];
+
+export const CONTACTS_FORM_VALIDATION_SCHEMA = yup.object().shape({
+  firstName: yup.string().required("Title is required"),
+  lastName: yup.string().required("Description is required"),
+  email: yup
+    .string()
+    .email("Valid Email is required")
+    .required("Description is required"),
+  role: yup
+    .object()
+    .nullable()
+    .shape({
+      label: yup.string().oneOf(ROLES_DUMMY_DATA.map(role => role.name)),
+      value: yup.number().oneOf(ROLES_DUMMY_DATA.map(role => role.id)),
+    })
+    .required("Contact is required"),
+});
