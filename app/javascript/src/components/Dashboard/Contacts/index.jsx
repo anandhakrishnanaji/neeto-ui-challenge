@@ -23,7 +23,7 @@ const Contacts = () => {
       <Menu menuBarBlocks={MENU_BAR_BLOCKS} showMenu={showMenuBar} />
       <Container>
         <Header
-          menuBarToggle={() => setShowMenuBar(!showMenuBar)}
+          menuBarToggle={() => setShowMenuBar(previousState => !previousState)}
           title="All Contacts"
           actionBlock={
             <Button
