@@ -62,7 +62,7 @@ const NoteForm = ({ onClose, refetch, note, isEdit }) => {
               label="Assigned Contact"
               name="assignedContact"
               placeholder="Select Contact"
-              options={CONTACTS_DUMMY_DATA.map((id, firstName) => ({
+              options={CONTACTS_DUMMY_DATA.map(({ id, firstName }) => ({
                 value: id,
                 label: firstName,
               }))}
