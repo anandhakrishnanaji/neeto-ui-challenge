@@ -29,7 +29,7 @@ const renderOptionButton = () => (
 );
 
 const Table = ({ contacts = [] }) => (
-  <div className="notes-table-height w-full">
+  <div className="contacts-table-height w-full">
     <NeetoUITable
       defaultPageSize={10}
       rowData={contacts}
